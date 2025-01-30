@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>AFTER MASSIVE RESISTANCE?</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="website-container">
+            <div class="main-header">
+                    <a href="#home" class="active">Home</a>
+                    <a href="pg2.html">Collection Items</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                  </div>
+            </div>
+            <div class="section-two">
+                <div class="timeline-container" id="timeline-1">
+                <div class="timeline-header">
+                  <h2 class="timeline-header__title">WHERE ARE WE AFTER MASSIVE RESISTANCE?</h2>
+                  <h3 class="timeline-header__subtitle">Revisiting the 1971 Consititution of Virginia</h3>
+                </div>
+                <div class="timeline">
+                  <div class="timeline-item" data-text="Setting The Stage">
+                    <div class="timeline__content"><img class="timeline__img" src="/img/barbara.jpg" />
+                      <h2 class="timeline__content-title">1951</h2>
+                      <p class="timeline__content-desc">At age 16, Barbara Johns organized the Moton School Strike. This strike was the beginning of a series of student-led protests that would lead to Brown vs The Board of Education.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="Setting The Stage">
+                    <div class="timeline__content"><img class="timeline__img" src="/img/Warren_Court_1953.jpg"/>
+                      <h2 class="timeline__content-title">1954</h2>
+                      <p class="timeline__content-desc">In 1954 the Supreme Court Ruled, unanimously, that racial segregation in public schools was unconstitutional.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="MASSIVE RESISTANCE">
+                    <div class="timeline__content"><img class="timeline__img" src="/img/almond.png"/>
+                      <h2 class="timeline__content-title">1956</h2>
+                      <p class="timeline__content-desc">In 1956, a Special Session of the Virginia General Assembly was called to vote on Massive Resistance legislation. Massive Resistance was a term coined by Harry F. Byrd Sr. to defend the state against desegregation.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="Into Intergrataion">
+                    <div class="timeline__content"><img class="timeline__img" src="img/norfolk2.png"/>
+                      <h2 class="timeline__content-title">1959</h2>
+                      <p class="timeline__content-desc">Courts find school closing to be unconstitutional. Almond repeals school closing. Feb, 17 black students enroll in school in Norfolk. Prince Edward County Closes all of their schools</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="Into Intergrataion">
+                    <div class="timeline__content"><img class="timeline__img" src="img/princeedward.png"/>
+                      <h2 class="timeline__content-title">1964</h2>
+                      <p class="timeline__content-desc">Supreme Court Ruling reopens Prince Edward County Schools</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="The New Consititution">
+                    <div class="timeline__content"><img class="timeline__img" src="img/students.png"/>
+                      <h2 class="timeline__content-title">1968</h2>
+                      <p class="timeline__content-desc">U.S. Supreme Court ruling in Green et al. v. County School Board of New Kent County, Virginia , overturned the “freedom of choice” plan did large-scale desegregation take place. The Commission on Constitutional Revision is formed</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="The New Consititution">
+                    <div class="timeline__content"><img class="timeline__img" src="/img/WP.png"/>
+                      <h2 class="timeline__content-title">1969</h2>
+                      <p class="timeline__content-desc">After a series of Federal court cases including Brown vs The Board of Education, there was a need for reform of the Virginia Constitution. By January 1969, the Commission on Constitutional Revision had presented its revisions to the General Assembly.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="The Votes are Cast">
+                    <div class="timeline__content"><img class="timeline__img" src="/img/voteyes.png"/>
+                      <h2 class="timeline__content-title">1970</h2>
+                      <p class="timeline__content-desc">From 1968 until 1971, the revision of the Virginia Constitution was constantly in the news. In 1970, it was time for Virginians to cast their vote on the new constitution.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-text="After the Vote">
+                    <div class="timeline__content"><img class="timeline__img" src="img/constitution.png"/>
+                      <h2 class="timeline__content-title">1971</h2>
+                      <p class="timeline__content-desc">The new constitution of Virginia went into effect on July 1, 1971</p>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script>
+               
+               (function($) {
+             $.fn.timeline = function() {
+               var selectors = {
+                 id: $(this),
+                 item: $(this).find(".timeline-item"),
+                 activeClass: "timeline-item--active",
+                 img: ".timeline__img"
+               };
+               selectors.item.eq(0).addClass(selectors.activeClass);
+               selectors.id.css(
+                 "background-image",
+                 "url(" +
+                   selectors.item
+                     .first()
+                     .find(selectors.img)
+                     .attr("src") +
+                   ")"
+               );
+               var itemLength = selectors.item.length;
+               $(window).scroll(function() {
+                 var max, min;
+                 var pos = $(this).scrollTop();
+                 selectors.item.each(function(i) {
+                   min = $(this).offset().top;
+                   max = $(this).height() + $(this).offset().top;
+                   var that = $(this);
+                   if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                     selectors.item.removeClass(selectors.activeClass);
+                     selectors.id.css(
+                       "background-image",
+                       "url(" +
+                         selectors.item
+                           .last()
+                           .find(selectors.img)
+                           .attr("src") +
+                         ")"
+                     );
+                     selectors.item.last().addClass(selectors.activeClass);
+                   } else if (pos <= max - 40 && pos >= min) {
+                     selectors.id.css(
+                       "background-image",
+                       "url(" +
+                         $(this)
+                           .find(selectors.img)
+                           .attr("src") +
+                         ")"
+                     );
+                     selectors.item.removeClass(selectors.activeClass);
+                     $(this).addClass(selectors.activeClass);
+                   }
+                 });
+               });
+             };
+           })(jQuery);
+           
+           $("#timeline-1").timeline();
+           
+               </script>    
+               </div>
+            <div class="section-three">
+                <div class="wrapper">
+  <div class="tabs">
+    <div class="tab">
+      <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+      <label for="tab-1" class="tab-label">Community Interviews</label>
+      <div class="tab-content">
+        <center><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLMBxwRsuTIgj74UMBHZ-29OamJFVn3jY2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+      <label for="tab-2" class="tab-label">Connect With Your Community</label>
+      <div class="tab-content">Keep the conversation going and connect with thought leaders in your community. Below is the list of questions asked to community members as part of the interview process. </br>
+      </br>
+        <ul>
+          <li>Can you speak to how limited the environmental protections in the constitution are?</li>
+          <li>Do you think the Virginia Government lives up to the environmental standards that the constitution set?</li>
+          <li>What additional protections would you like to see in the constitution of Virginia?</li>
+          <li>What kind of work has you or your organization done to enact change around environmental protections?</li>
+          <li>The 1971 Constitution of Virginia has one of the most robust educational sections in the country. Do you think</li>
+          <li>this section of the constitution has stood the test of time?</li>
+          <li>There are people who believe that schools in Virginia are still not equal due to disparities in funding and SOL</li>
+          <li>scores. What do you believe this the result of?</li>
+          <li>In since 2021 there have been attempts to repeal the Marshall-Newman Amendment, the amendment that bans same-sex marriage, and replace it with more inclusive language. How will this inclusive language benefit the LGBT community?</li>
+          <li>Besides same-sex marriage, the use of gendered terms and pronouns in the constitution is male dominated. How would you reform this issue?</li>
+          <li>What additional protections for LGBT individuals would you like to see in the constitution?</li>
+        </ul>
+      </div>
+    </div>
+</div>
+            </div>
+            <center>Citations</center>
+            <center><p>Education Images, Visual Studies Collection, Library of Virginia. </p> </br> <p>Virginia. Governor (1970-1974 : Holton), Executive Papers, 1970-1974. Accession 28050, 28101, 29488, and 28795, State government records collection, The Library of Virginia, Richmond, Virginia. </p></center>
+        </div>
+    </body>
+</html>
